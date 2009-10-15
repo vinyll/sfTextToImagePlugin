@@ -14,7 +14,7 @@ function text_image_tag($text, $preset, $options = array())
        ;
   
   return image_tag(
-            url_for('text_to_image', array_merge(array('preset' => $preset, 'text' => $text), $options)),
+            url_for('text_to_image', array_merge(array('preset' => $preset, 'text' => base64_encode($text), 'encoded' => true), $options)),
             array('alt' => $alt)
           );
 }

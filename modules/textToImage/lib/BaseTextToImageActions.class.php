@@ -39,7 +39,12 @@ class BaseTextToImageActions extends sfActions
     $cache_folder = sfConfig::get('sf_module_cache_dir');
     
     // jitr file gets text value from hardcoded $_GET['text']
-    $_GET['text'] = $request->getParameter('text');
+    $text = $request->getParameter('text');
+    $text = $request->getParameter('encoded')
+          ? base64_decode($text)
+          : $text;
+    
+    $_GET['text'] = $text;
     $font_file = sfConfig::get('app_text_to_image_fonts_dir').'/'.$font_file;
     
     // Include source generator

@@ -1,0 +1,3 @@
+text_to_image:
+  url:    images/:text.png
+  param:  { module: textToImage, action: replace }

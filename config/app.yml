@@ -1,0 +1,10 @@
+all:
+  text_to_image:
+    fonts_dir:    %SF_DATA_DIR%/fonts
+    presets:
+#      h2:
+#        font_file:  comic.ttf
+#        font_color: 666666
+#        font_size:  18
+#        background_color: FFF
+#        transparent_background: true

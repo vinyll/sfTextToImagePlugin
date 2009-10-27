@@ -1,0 +1,61 @@
+# sfTextToImagePlugin (for symfony 1.3 and I assume older versions)
+
+
+## What is it ?
+sfTextToImagePlugin is a symfony 1.3 (and probably other untested version) plugin that converts text into an image based on a truetype font you provide.
+
+
+## How to install ?
+From your symfony project, type :
+
+cd plugins
+git://github.com/vinyll/sfTextToImagePlugin.git sfTextToImagePlugin
+
+
+## How to try ?
+
+create a data/fonts directory.
+copy your .ttf file(s) there.
+go to apps/your_app/config/app.yml :
+all:
+  text_to_image:
+    presets:
+      my_preset:
+        font_file:  my_truetypefont.ttf
+        font_color: 996600
+        font_size:  22
+        background_color: FFF
+        transparent_background: true
+add at the top of your template file :
+<?php use_helper('TextToImage') ?>
+replace your text with :
+<?php echo text_image_tag('My display text', 'my_preset') ?>
+
+
+# How to use ?
+Multiple font properties
+You can have many presets, each having its own properties (font family, color, size, bg color, transparency) described by a preset name.
+
+apps/your_app/config/app.yml :
+
+all:
+  text_to_image:
+    presets:
+      title:                             # preset name
+        font_file:  my_truetypefont.ttf  # font in your project data/fonts directory
+        font_color: 996600               # color to render
+        font_size:  22                   # font size
+        background_color: FFF            # color of the background
+        transparent_background: true     # wether to use transparency
+      subtitle:
+        font_file:  my_truetypefont.ttf
+        font_color: 996600
+        font_size:  15
+        background_color: FFF
+        transparent_background: true
+
+
+## About
+
+The lead developer is Vincent Agnano <vincent.agnano@particul.es>.
+You may contact me at the email address here above.
